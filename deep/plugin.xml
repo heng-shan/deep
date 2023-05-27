@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="SampleView.actionSet"
+            label="Sample Action Set"
+            visible="true">
+         <menu
+               id="sampleMenu"
+               label="Bad Smells">
+            <separator
+                  name="sampleGroup">
+            </separator>
+         </menu>
+         <action
+               class="cn.njust.cy.views.Menu"
+               icon="icons/sample.gif"
+               id="cn.njust.cy.views.Menu"
+               label="Circular Dependency"
+               menubarPath="sampleMenu/sampleGroup"
+               toolbarPath="sampleGroup"
+               tooltip="Hello, Eclipse world">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Bad Smells"
+            id="cn.njust.cycle">
+      </category>
+      <view
+            category="cn.njust.cycle"
+            class="cn.njust.cy.views.cycleView"
+            id="cn.njust.cy.views.cycleView"
+            name="Circular Dependency">
+      </view>   
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.markerAnnotationSpecification">
+      <specification
+            annotationType="myAnnotation"
+            colorPreferenceKey="Annotation_color"
+            colorPreferenceValue="192,255,192"
+            contributesToHeader="false"
+            highlightPreferenceKey="Annotation_highlight"
+            highlightPreferenceValue="true"
+            includeOnPreferencePage="true"
+            isGoToNextNavigationTarget="true"
+            isGoToNextNavigationTargetKey="Annotation_nextNavigationTarget"
+            isGoToPreviousNavigationTarget="true"
+            isGoToPreviousNavigationTargetKey="Annotation_previousNavigationTarget"
+            label="Depend Code"
+            overviewRulerPreferenceKey="Annotation_overviewRuler"
+            overviewRulerPreferenceValue="true"
+            presentationLayer="0"
+            showInNextPrevDropdownToolbarAction="true"
+            showInNextPrevDropdownToolbarActionKey="Annotation_nextPrevDropdownToolbar"
+            textPreferenceKey="Annotation_text"
+            textPreferenceValue="true"
+            textStylePreferenceKey="Annotation_stylePreferences"
+            textStylePreferenceValue="BOX"
+            verticalRulerPreferenceKey="Annotation_verticalRuler"
+            verticalRulerPreferenceValue="false">
+      </specification>
+   </extension>
+</plugin>
